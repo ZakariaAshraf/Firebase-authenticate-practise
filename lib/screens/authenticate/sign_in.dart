@@ -23,6 +23,7 @@ class _SignInState extends State<SignIn> {
           child: ElevatedButton(
             onPressed: () async{
               dynamic result=await _authService.signInAnonymous();
+              print(result);
             },
             child: Text(
               'Sign in',
