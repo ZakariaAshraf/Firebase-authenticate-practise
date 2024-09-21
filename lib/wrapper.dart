@@ -1,3 +1,4 @@
+import 'package:firebase_practise2/screens/authenticate/authenticate.dart';
 import 'package:flutter/material.dart';
 
 class Wrapper extends StatelessWidget {
@@ -5,6 +6,6 @@ class Wrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Authenticate();
   }
 }
