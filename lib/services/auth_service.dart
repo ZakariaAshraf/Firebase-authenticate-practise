@@ -21,5 +21,11 @@ UserModel? _userFromFirebase(User? user){
       return null;
     }
 }
+  // auth change user stream
+  Stream<UserModel?> get onAuthStateChanged{
+    return _auth.authStateChanges()
+    //.map((User? user) => _userFromFirebase(user));
+        .map(_userFromFirebase);
+  }
 
 }
