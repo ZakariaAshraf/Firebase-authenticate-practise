@@ -36,5 +36,30 @@ UserModel? _userFromFirebase(User? user){
       print(e.toString());
     }
   }
+  Future signInWithEmailAndPassword(String email ,String password)async{
+   try {
+     return await _auth.signInWithEmailAndPassword(email: email, password: password);
+   } catch (e) {
+     // TODO
+     print(e.toString());
+     return null;
+   }
+  }
+
+
+
+
+  ////////////////////////////////////////////////////////////////////////
+
+  Future signUpWithEmailAndPassword(String email ,String password)async{
+   try {
+     return await _auth.createUserWithEmailAndPassword(email: email, password: password);
+   } catch (e) {
+     // TODO
+     print(e.toString());
+     return null;
+   }
+  }
+
 
 }
