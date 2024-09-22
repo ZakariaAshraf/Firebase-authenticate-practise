@@ -1,10 +1,27 @@
 import 'package:flutter/material.dart';
 
+import '../../services/auth_service.dart';
+
 class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
+  Home({Key? key}) : super(key: key);
+  AuthService _authService = AuthService();
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text("Home"),
+        actions: [
+          TextButton(
+            onPressed: () async {
+              _authService.signOut();
+            },
+            child: Text("Sign out"),
+          )
+        ],
+      ),
+    );
   }
 }

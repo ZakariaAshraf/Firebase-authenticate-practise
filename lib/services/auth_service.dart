@@ -28,4 +28,13 @@ UserModel? _userFromFirebase(User? user){
         .map(_userFromFirebase);
   }
 
+  Future signOut()async{
+    try {
+      return await _auth.signOut();
+    }  catch (e) {
+      // TODO
+      print(e.toString());
+    }
+  }
+
 }
