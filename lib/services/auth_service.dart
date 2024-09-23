@@ -1,5 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_practise2/models/user_model.dart';
+import 'package:firebase_practise2/screens/home/home.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthService{
   final FirebaseAuth _auth =FirebaseAuth.instance;
@@ -36,9 +40,10 @@ UserModel? _userFromFirebase(User? user){
       print(e.toString());
     }
   }
-  Future signInWithEmailAndPassword(String email ,String password)async{
+  Future signInWithEmailAndPassword(String email ,String password,BuildContext context)async{
    try {
-     return await _auth.signInWithEmailAndPassword(email: email, password: password);
+      await _auth.signInWithEmailAndPassword(email: email, password: password);
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Home(),));
    } catch (e) {
      // TODO
      print(e.toString());
@@ -60,6 +65,11 @@ UserModel? _userFromFirebase(User? user){
      return null;
    }
   }
+verifyEmail(){
+    _auth.currentUser!.sendEmailVerification();
+}
+
+
 
 
 }
